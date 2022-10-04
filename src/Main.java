@@ -68,8 +68,9 @@ public class Main {
 
         b.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if(!t1.getText().matches("[a-z]+")) {
-
+                String input = t1.getText();
+                input = input.replaceAll("\\s+","");
+                if(!t1.getText().matches("[a-z]+")  & input.length()>0) {
                     double temp = Double.parseDouble(t1.getText());
                     String from = "";
                     String to = "";
@@ -106,7 +107,7 @@ public class Main {
 
                     if (from == "Cel" && to == "Kel") {
                         label3.setText(temp + " degrees Celsius = ");
-                        label4.setText(temp + 273.15 + " degrees Kelvin");
+                        label4.setText(Math.round((temp + 273.15) * 100.0) / 100.0 + " degrees Kelvin");
                     }
 
 
