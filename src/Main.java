@@ -75,71 +75,11 @@ public class Main {
                     String from = "";
                     String to = "";
 
-                    if (radioB1.isSelected()) {
-                        from = "Cel";
-                    }
-                    if (radioB2.isSelected()) {
-                        from = "Fah";
-                    }
-                    if (radioB3.isSelected()) {
-                        from = "Kel";
-                    }
+                    from = fromBtn(radioB1, radioB2, radioB3, from);
+                    to = toBtn(radioB4, radioB5, radioB6, to);
 
-                    if (radioB4.isSelected()) {
-                        to = "Cel";
-                    }
-                    if (radioB5.isSelected()) {
-                        to = "Fah";
-                    }
-                    if (radioB6.isSelected()) {
-                        to = "Kel";
-                    }
+                    setResults(from, to, temp, label3, label4);
 
-                    if (from == "Cel" && to == "Cel") {
-                        label3.setText(temp + " degrees Celsius = ");
-                        label4.setText(temp + " degrees Celsius");
-                    }
-
-                    if (from == "Cel" && to == "Fah") {
-                        label3.setText(temp + " degrees Celsius = ");
-                        label4.setText(temp * 1.8 + 32 + " degrees Fahrenheit");
-                    }
-
-                    if (from == "Cel" && to == "Kel") {
-                        label3.setText(temp + " degrees Celsius = ");
-                        label4.setText(Math.round((temp + 273.15) * 100.0) / 100.0 + " degrees Kelvin");
-                    }
-
-
-                    if (from == "Fah" && to == "Cel") {
-                        label3.setText(temp + " degrees Fahrenheit = ");
-                        label4.setText(Math.round(((temp - 32) * .5556) * 100.0) / 100.0 + " degrees Celsius");
-                    }
-
-                    if (from == "Fah" && to == "Fah") {
-                        label3.setText(temp + " degrees Fahrenheit = ");
-                        label4.setText(temp + " degrees Fahrenheit");
-                    }
-
-                    if (from == "Fah" && to == "Kel") {
-                        label3.setText(temp + " degrees Fahrenheit = ");
-                        label4.setText(Math.round(((((temp - 32) * 5) / 9) + 273.15) * 100.0) / 100.0 + " degrees Kelvin");
-                    }
-
-                    if (from == "Kel" && to == "Cel") {
-                        label3.setText(temp + " degrees Kelvin = ");
-                        label4.setText(temp - 273.15 + " degrees Celsius");
-                    }
-
-                    if (from == "Kel" && to == "Fah") {
-                        label3.setText(temp + " degrees Kelvin = ");
-                        label4.setText(Math.round((((temp - 273.15) * 9 / 5) + 32) * 100.0) / 100.0 + " degrees Fahrenheit");
-                    }
-
-                    if (from == "Kel" && to == "Kel") {
-                        label3.setText(temp + " degrees Kelvin = ");
-                        label4.setText(temp + " degrees Kelvin");
-                    }
                     label5.setText("");
                 }else{
                     label5.setText("ONLY NUMBERS PLEASE");
@@ -168,6 +108,87 @@ public class Main {
         f.setSize(550,500);
         f.setLayout(null);
         f.setVisible(true);
+    }
+
+    static String fromBtn(JRadioButton radioB1,
+                          JRadioButton radioB2,
+                          JRadioButton radioB3,
+                          String from){
+        if (radioB1.isSelected()) {
+            from = "Cel";
+        }
+
+        if (radioB2.isSelected()) {
+            from = "Fah";
+        }
+        if (radioB3.isSelected()) {
+            from = "Kel";
+        }
+        return from;
+    }
+
+    static String toBtn(JRadioButton radioB4,
+                        JRadioButton radioB5,
+                        JRadioButton radioB6,
+                        String to){
+        if (radioB4.isSelected()) {
+            to = "Cel";
+        }
+        if (radioB5.isSelected()) {
+            to = "Fah";
+        }
+        if (radioB6.isSelected()) {
+            to = "Kel";
+        }
+        return to;
+    }
+
+    static void setResults(String from, String to, double temp, JLabel label3, JLabel label4){
+        if (from == "Cel" && to == "Cel") {
+            label3.setText(temp + " degrees Celsius = ");
+            label4.setText(temp + " degrees Celsius");
+        }
+
+        if (from == "Cel" && to == "Fah") {
+            label3.setText(temp + " degrees Celsius = ");
+            label4.setText(temp * 1.8 + 32 + " degrees Fahrenheit");
+        }
+
+        if (from == "Cel" && to == "Kel") {
+            label3.setText(temp + " degrees Celsius = ");
+            label4.setText(Math.round((temp + 273.15) * 100.0) / 100.0 + " degrees Kelvin");
+        }
+
+
+        if (from == "Fah" && to == "Cel") {
+            label3.setText(temp + " degrees Fahrenheit = ");
+            label4.setText(Math.round(((temp - 32) * .5556) * 100.0) / 100.0 + " degrees Celsius");
+        }
+
+        if (from == "Fah" && to == "Fah") {
+            label3.setText(temp + " degrees Fahrenheit = ");
+            label4.setText(temp + " degrees Fahrenheit");
+        }
+
+        if (from == "Fah" && to == "Kel") {
+            label3.setText(temp + " degrees Fahrenheit = ");
+            label4.setText(Math.round(((((temp - 32) * 5) / 9) + 273.15) * 100.0) / 100.0 + " degrees Kelvin");
+        }
+
+        if (from == "Kel" && to == "Cel") {
+            label3.setText(temp + " degrees Kelvin = ");
+            label4.setText(temp - 273.15 + " degrees Celsius");
+        }
+
+        if (from == "Kel" && to == "Fah") {
+            label3.setText(temp + " degrees Kelvin = ");
+            label4.setText(Math.round((((temp - 273.15) * 9 / 5) + 32) * 100.0) / 100.0 + " degrees Fahrenheit");
+        }
+
+        if (from == "Kel" && to == "Kel") {
+            label3.setText(temp + " degrees Kelvin = ");
+            label4.setText(temp + " degrees Kelvin");
+        }
     }
 
 }
