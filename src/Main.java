@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Main {
     public static void main(String[] args) {
@@ -111,6 +113,12 @@ public class Main {
         f.setSize(550,500);
         f.setLayout(null);
         f.setVisible(true);
+
+        f.addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent ev)
+            {System.exit(0);}
+        });
     }
 
     static String fromBtn(JRadioButton radioB1,
