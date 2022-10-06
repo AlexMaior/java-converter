@@ -82,6 +82,9 @@ public class Main {
 
                     label5.setText("");
                 }else{
+                    label3.setText("");
+                    label4.setText("");
+                    label5.setText("");
                     label5.setText("ONLY NUMBERS PLEASE");
                     t1.setText("");
                 }
