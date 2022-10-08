@@ -162,7 +162,7 @@ public class Main {
 
         if (from == "Cel" && to == "Fah") {
             label3.setText(temp + " degrees Celsius = ");
-            label4.setText(temp * 1.8 + 32 + " degrees Fahrenheit");
+            label4.setText(Math.round((temp * 1.8 + 32) * 100.0) / 100.0 + " degrees Fahrenheit");
         }
 
         if (from == "Cel" && to == "Kel") {
@@ -188,7 +188,7 @@ public class Main {
 
         if (from == "Kel" && to == "Cel") {
             label3.setText(temp + " degrees Kelvin = ");
-            label4.setText(temp - 273.15 + " degrees Celsius");
+            label4.setText(Math.round((temp - 273.15) * 100.0) / 100.0 + " degrees Celsius");
         }
 
         if (from == "Kel" && to == "Fah") {
